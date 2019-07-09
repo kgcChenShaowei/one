@@ -41,6 +41,6 @@ public interface HouseMapper {
     //查询用户未审核的出租房信息
     public List<House> getHouseByIsPass(Integer ispass);
 
-    public List<House> getBorswerHouse(HouseCondition condition);
+    public List<House> getBorswerHouse(HouseCondition    condition);
 
 }
