@@ -366,6 +366,9 @@
   <select id="getBorswerHouse" parameterType="com.team.house.utils.HouseCondition" resultType="House">
     SELECT *,h.`TYPE_ID` as typeId,h.`STREET_ID` as streetId,h.`USER_ID` as userId
     FROM house  AS h
+    INNER JOIN TYPE AS t  ON h.`TYPE_ID`=t.id
+    INNER JOIN street AS s ON h.`STREET_ID`=s.`ID`
+    INNER JOIN district AS d ON s.`DISTRICT_ID`=d.`ID`
     where isdel=0 and ispass=1
     <!--拼接条件-->
     <if test="title!=null">

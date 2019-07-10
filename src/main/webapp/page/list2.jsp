@@ -5,28 +5,25 @@
 <META content="text/html; charset=utf-8" http-equiv=Content-Type>
 <LINK rel=stylesheet type=text/css href="../css/style.css">
 <META name=GENERATOR content="MSHTML 8.00.7601.17514">
-<script language="JavaScript" src="../admin/js/jquery-1.8.3.js"></script>
+<script language="JavaScript" src="../index/js/jquery-1.8.3.js"></script>
     <script language="JavaScript">
-        $(function(){  //加载事件
-            //使用异步加载类型
-            $.post("goType",null,function(data){
-                for(var i=0;i<data.length;i++){
-                    //创建option
-                    var node=$("<option value="+data[i].id+">"+data[i].name+"</option>");
-                    $("#typeid").append(node);
-                }
-
-                //设置选中项
-                $("#typeid").val(${condition.typeid});
-            },"json");
-
+        $(function () {
+           $.post("goType",null,function(data){
+               for(var i=0;i<data.length;i++){
+                   //创建option
+                   var node=$("<option value="+data[i].id+">"+data[i].name+"</option>");
+                   $("#typeid").append(node);
+               }
+               //设置选中项
+               $("#typeid").val(${condition.typeid});
+               },"json")
 
             //使用异步加载区域
             $.post("goDistrict",null,function(data){
                 for(var i=0;i<data.length;i++){
                     //创建option
                     var node=$("<option value="+data[i].id+">"+data[i].name+"</option>");
-                    $("#districtId").append(node);
+                    $("#districtid").append(node);
                 }
 
                 //设置区域的选中项
@@ -76,9 +73,9 @@
 <DIV id=logo><IMG src="../images/logo.gif"></DIV></DIV>
 <DIV id=navbar class=wrap>
   <FORM id=sform method=post action=getBroswerHouse>
-       <input  name="page" id="savepage" type="hidden" value="1">
     <div>
       标题：<INPUT class=text type=text name=title value="${condition.title}">
+        <input  name="page" id="savepage" type="hidden" value="1">
       类型:<SELECT id="typeid" name=typeid>
              <OPTION selected value="">不限</OPTION>
           </SELECT>
@@ -88,8 +85,9 @@
       街道:<SELECT name=streetid id="streetid">
               <OPTION selected value="">不限</OPTION>
            </SELECT>
-      价格:<INPUT class=text type=text name=startPrice value="${condition.startPrice}">-<INPUT class=text value="${condition.endPrice}" type=text name=endPrice>元
-      <LABEL class=ui-blue><INPUT value=搜索房屋 type=submit name=search></LABEL>
+      价格:<INPUT class=text type=text name=startPrice value="${condition.startPrice}">-
+        <INPUT class=text value="${condition.endPrice}" type=text name=endPrice>元
+      <LABEL class=ui-blue><INPUT value=搜索房屋 type=submit name=search ></LABEL>
     </div>
 </FORM>
 </DIV>

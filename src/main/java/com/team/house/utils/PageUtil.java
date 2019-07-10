@@ -2,7 +2,7 @@ package com.team.house.utils;
 
 public class PageUtil {
     private Integer page=1;
-    private Integer rows=10;
+    private Integer rows=4;
 
     public Integer getPage() {
         return page;
